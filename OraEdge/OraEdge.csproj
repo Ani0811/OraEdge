@@ -92,10 +92,10 @@
     <Compile Include="Forms\Edge_Login.Designer.cs">
       <DependentUpon>Edge_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="OraEdge_Parent.cs">
+    <Compile Include="Forms\OraEdge_Parent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OraEdge_Parent.Designer.cs">
+    <Compile Include="Forms\OraEdge_Parent.Designer.cs">
       <DependentUpon>OraEdge_Parent.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -103,7 +103,7 @@
     <EmbeddedResource Include="Forms\Edge_Login.resx">
       <DependentUpon>Edge_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OraEdge_Parent.resx">
+    <EmbeddedResource Include="Forms\OraEdge_Parent.resx">
       <DependentUpon>OraEdge_Parent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -115,12 +115,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Oracle.ManagedDataAccess.Client.Configuration.Section.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -135,6 +129,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Icon\oracle_logo_icon_168919.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

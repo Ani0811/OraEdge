@@ -22,6 +22,8 @@ namespace OraEdge
         public OraEdge_Parent()
         {
             InitializeComponent();
+            Font = new Font(new FontFamily("Segoe UI"), 9f);
+
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(OraEdge_Parent_KeyDown);
 
@@ -36,6 +38,8 @@ namespace OraEdge
 
         private void OraEdge_Parent_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
+
             Edge_Login OraLogin = new Edge_Login();
             OraLogin.Show();
             Ora_Tab.TabPages.Clear();
@@ -45,7 +49,10 @@ namespace OraEdge
         {
             Application.Exit();
         }
-
+        private void Mnu_Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
         private void Ora_Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -77,6 +84,43 @@ namespace OraEdge
             e.Graphics.DrawString("X", new Font("Verdana", 7, FontStyle.Bold), Brushes.White, btn_Close_Rect);
 
             e.Graphics.DrawRectangle(Pens.Black, e.Bounds);
+        }
+        private void Ora_Tab_MouseMove(object sender, MouseEventArgs e)
+        {
+            int selectedTabIndex = Ora_Tab.SelectedIndex;
+
+            for (int i = 0; i < Ora_Tab.TabPages.Count; i++)
+            {
+                if (i == selectedTabIndex)
+                {
+                    tab_Rect = Ora_Tab.GetTabRect(i);
+                    btn_Close_Rect = new Rectangle(tab_Rect.Right - 12 - 8, tab_Rect.Top + 5, 12, 12);
+
+                    if (btn_Close_Rect.Contains(e.Location))
+                    {
+                        if (!isHovered)
+                        {
+                            isHovered = true;
+                            Ora_Tab.Invalidate();
+                        }
+                        return;
+                    }
+                }
+            }
+            if (isHovered)
+            {
+                isHovered = false;
+                Ora_Tab.Invalidate();
+            }
+        }
+
+        private void Ora_Tab_MouseLeave(object sender, EventArgs e)
+        {
+            if (isHovered)
+            {
+                isHovered = false;
+                Ora_Tab.Invalidate();
+            }
         }
 
         private void Ora_Tab_MouseClick(object sender, MouseEventArgs e)
@@ -184,7 +228,7 @@ namespace OraEdge
                 {
                     BackColor = Color.LightSteelBlue,
                     ForeColor = Color.Black,
-                    Font = new Font("Verdana", 9, FontStyle.Bold),
+                    //Font = new Font("Verdana", 9, FontStyle.Bold),
                     Alignment = DataGridViewContentAlignment.MiddleCenter
                 },
                 EnableHeadersVisualStyles = false
@@ -195,43 +239,23 @@ namespace OraEdge
             Ora_Tab.TabPages.Add(newTab);
             Ora_Tab.SelectedTab = newTab;
         }
-
-        private void Ora_Tab_MouseMove(object sender, MouseEventArgs e)
+        private void add_TextBox_Tab(String tabTitle, String iniTxt = "")
         {
-            int selectedTabIndex = Ora_Tab.SelectedIndex;
+            TabPage newTab = new TabPage(tabTitle);
 
-            for (int i = 0; i < Ora_Tab.TabPages.Count; i++)
+            TextBox tb = new TextBox()
             {
-                if(i == selectedTabIndex)
-                {
-                    tab_Rect = Ora_Tab.GetTabRect(i);
-                    btn_Close_Rect = new Rectangle(tab_Rect.Right - 12 - 8, tab_Rect.Top + 5, 12, 12);
+                Multiline = true,
+                Dock = DockStyle.Fill,
+                Text = iniTxt,
+                //Font = new Font("Verdana", 7),
+                ScrollBars = ScrollBars.Both
+            };
 
-                    if (btn_Close_Rect.Contains(e.Location))
-                    {
-                        if (!isHovered)
-                        {
-                            isHovered = true;
-                            Ora_Tab.Invalidate();
-                        }
-                        return;
-                    }
-                }
-            }
-            if (isHovered)
-            {
-                isHovered = false;
-                Ora_Tab.Invalidate();
-            }
-        }
+            newTab.Controls.Add(tb);
 
-        private void Ora_Tab_MouseLeave(object sender, EventArgs e)
-        {
-            if (isHovered)
-            {
-                isHovered = false;
-                Ora_Tab.Invalidate(); 
-            }
+            Ora_Tab.TabPages.Add(newTab);
+            Ora_Tab.SelectedTab = newTab;
         }
     }
 }
