@@ -12,11 +12,12 @@ using Oracle.ManagedDataAccess.Types;
 
 namespace OraEdge
 {
-    public partial class Edge_Login : Form
+    public partial class Edge_Login : Settings// Form
     {
         public Edge_Login()
         {
             InitializeComponent();
+            SetFontForAllControls(this);
         }
 
         private void Edge_Login_Load(object sender, EventArgs e)

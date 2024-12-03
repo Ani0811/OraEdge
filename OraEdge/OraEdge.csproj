@@ -86,6 +86,9 @@
     <Compile Include="Code\OraConnect.cs" />
     <Compile Include="Code\OraDAL.cs" />
     <Compile Include="Code\Ora_DB_Helper.cs" />
+    <Compile Include="Code\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Edge_Login.cs">
       <SubType>Form</SubType>
     </Compile>

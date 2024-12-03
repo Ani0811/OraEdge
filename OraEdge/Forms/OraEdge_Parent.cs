@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace OraEdge
 {
-    public partial class OraEdge_Parent : Form
+    public partial class OraEdge_Parent : Settings// Form
     {
         string strSelectedTxt = null;
         bool F5_Pressed = false;
@@ -22,7 +22,7 @@ namespace OraEdge
         public OraEdge_Parent()
         {
             InitializeComponent();
-            Font = new Font(new FontFamily("Segoe UI"), 9f);
+            SetFontForAllControls(this);
 
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(OraEdge_Parent_KeyDown);
@@ -65,7 +65,7 @@ namespace OraEdge
             e.Graphics.FillRectangle(Brushes.LightGray, e.Bounds);
 
             String tabTitle = tab.Text;
-            Font tabFont = new Font("Verdana", 7);
+            Font tabFont = new Font("Segoe UI", 7);
             Brush textBrush = Brushes.Black;
             e.Graphics.DrawString(tabTitle, tabFont, textBrush, e.Bounds.Left + 5, e.Bounds.Top + 5);
 
@@ -218,7 +218,7 @@ namespace OraEdge
             TabPage newTab = new TabPage($"Tab {Ora_Tab.TabCount + 1}" + String.Empty.PadRight('\t'));
             newTab.ToolTipText = query;
 
-            DataGridView gdView = new DataGridView
+            /*DataGridView gdView = new DataGridView
             {
                 Dock = DockStyle.Fill,
                 DataSource = dt,
@@ -232,7 +232,10 @@ namespace OraEdge
                     Alignment = DataGridViewContentAlignment.MiddleCenter
                 },
                 EnableHeadersVisualStyles = false
-            };
+            };*/
+            DataGridView gdView = new DataGridView();
+            Settings settings = new Settings();
+            settings.SetSettingsForGrid(gdView, dt);
 
             newTab.Controls.Add(gdView);
 
