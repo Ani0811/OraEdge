@@ -86,7 +86,7 @@
     <Compile Include="Code\OraConnect.cs" />
     <Compile Include="Code\OraDAL.cs" />
     <Compile Include="Code\Ora_DB_Helper.cs" />
-    <Compile Include="Code\Settings.cs">
+    <Compile Include="Forms\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Edge_Login.cs">
@@ -94,6 +94,18 @@
     </Compile>
     <Compile Include="Forms\Edge_Login.Designer.cs">
       <DependentUpon>Edge_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_TextBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_TextBox.Designer.cs">
+      <DependentUpon>Frm_TextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OraEdge_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OraEdge_Main.Designer.cs">
+      <DependentUpon>OraEdge_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\OraEdge_Parent.cs">
       <SubType>Form</SubType>
@@ -105,6 +117,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Edge_Login.resx">
       <DependentUpon>Edge_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_TextBox.resx">
+      <DependentUpon>Frm_TextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OraEdge_Main.resx">
+      <DependentUpon>OraEdge_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OraEdge_Parent.resx">
       <DependentUpon>OraEdge_Parent.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OraEdge.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace OraEdge
 {
-    public partial class OraEdge_Parent : Settings// Form
+    public partial class OraEdge_Parent : Settings
     {
         string strSelectedTxt = null;
         bool F5_Pressed = false;
@@ -218,31 +219,14 @@ namespace OraEdge
             TabPage newTab = new TabPage($"Tab {Ora_Tab.TabCount + 1}" + String.Empty.PadRight('\t'));
             newTab.ToolTipText = query;
 
-            /*DataGridView gdView = new DataGridView
-            {
-                Dock = DockStyle.Fill,
-                DataSource = dt,
-                ReadOnly = true,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
-                ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle()
-                {
-                    BackColor = Color.LightSteelBlue,
-                    ForeColor = Color.Black,
-                    //Font = new Font("Verdana", 9, FontStyle.Bold),
-                    Alignment = DataGridViewContentAlignment.MiddleCenter
-                },
-                EnableHeadersVisualStyles = false
-            };*/
             DataGridView gdView = new DataGridView();
-            Settings settings = new Settings();
-            settings.SetSettingsForGrid(gdView, dt);
+            SetSettingsForGrid(gdView, dt);
 
             newTab.Controls.Add(gdView);
-
             Ora_Tab.TabPages.Add(newTab);
             Ora_Tab.SelectedTab = newTab;
         }
-        private void add_TextBox_Tab(String tabTitle, String iniTxt = "")
+        /*private void add_TextBox_Tab(String tabTitle, String iniTxt = "")
         {
             TabPage newTab = new TabPage(tabTitle);
 
@@ -259,6 +243,7 @@ namespace OraEdge
 
             Ora_Tab.TabPages.Add(newTab);
             Ora_Tab.SelectedTab = newTab;
-        }
+        }*/
+        
     }
 }
