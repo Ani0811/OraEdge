@@ -1,4 +1,4 @@
-﻿namespace OraEdge.Forms
+﻿namespace OraEdge
 {
     partial class Frm_TextBox
     {
@@ -37,14 +37,14 @@
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(695, 321);
+            this.textBox1.Size = new System.Drawing.Size(608, 179);
             this.textBox1.TabIndex = 0;
             // 
             // Frm_TextBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 321);
+            this.ClientSize = new System.Drawing.Size(608, 179);
             this.Controls.Add(this.textBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

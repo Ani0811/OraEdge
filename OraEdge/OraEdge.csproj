@@ -83,8 +83,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\IOraSingleton.cs" />
     <Compile Include="Code\OraConnect.cs" />
     <Compile Include="Code\OraDAL.cs" />
+    <Compile Include="Code\OraSingleton.cs" />
     <Compile Include="Code\Ora_DB_Helper.cs" />
     <Compile Include="Forms\Settings.cs">
       <SubType>Form</SubType>

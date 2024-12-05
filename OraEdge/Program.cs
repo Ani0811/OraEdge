@@ -22,7 +22,8 @@ namespace OraEdge
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new OraEdge_Parent());
+                    //Application.Run(new OraEdge_Parent());
+                    Application.Run(new OraEdge_Main());
                 }
                 else { MessageBox.Show("Another instance of the OraEdge is already running.", "Oracle Edge", MessageBoxButtons.OK, MessageBoxIcon.Asterisk); }
             }

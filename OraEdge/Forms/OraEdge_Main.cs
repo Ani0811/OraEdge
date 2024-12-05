@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OraEdge.Code;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,33 +9,47 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OraEdge.Forms
+namespace OraEdge
 {
     public partial class OraEdge_Main : Form
     {
-        static OraEdge_Main instance;
+        private IOraSingleton _iOraSingleton;
+        //static OraEdge_Main instance;
         public OraEdge_Main()
         {
             InitializeComponent();
-            LoadForm_TxtBox();
+            _iOraSingleton = new OraSingleton();
         }
-        public static OraEdge_Main getInstance()
+
+        private void OraEdge_Main_Load(object sender, EventArgs e)
         {
-            if(instance == null || instance.IsDisposed)
-            {
-                instance = new OraEdge_Main();
-            }
-            return instance;
+            tab_textbox.TabPages.Clear();
+
+            /*OraSingleton oraSingleton = new OraSingleton();
+            oraSingleton.Initialize_Form("Frm_TextBox", tab_textbox);*/
+            _iOraSingleton.Initialize_Form("Frm_TextBox", tab_textbox);
+
         }
-        public void LoadForm_TxtBox()
-        {
-            Frm_TextBox tb_Form = new Frm_TextBox();
-            pnl_TextBox.Controls.Clear();
-            tb_Form.TopLevel = false;
-            tb_Form.FormBorderStyle = FormBorderStyle.None;
-            tb_Form.Dock = DockStyle.Fill;
-            pnl_TextBox.Controls.Add(tb_Form);
-            tb_Form.Show();
-        }
+
+        /*
+public static OraEdge_Main getInstance()
+{
+if(instance == null || instance.IsDisposed)
+{
+instance = new OraEdge_Main();
+}
+return instance;
+}
+public void LoadForm_TxtBox()
+{
+Frm_TextBox tb_Form = new Frm_TextBox();
+pnl_TextBox.Controls.Clear();
+tb_Form.TopLevel = false;
+tb_Form.FormBorderStyle = FormBorderStyle.None;
+tb_Form.Dock = DockStyle.Fill;
+pnl_TextBox.Controls.Add(tb_Form);
+tb_Form.Show();
+}
+*/
     }
 }

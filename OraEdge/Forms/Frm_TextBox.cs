@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OraEdge.Forms
+namespace OraEdge
 {
     public partial class Frm_TextBox : Form
     {
