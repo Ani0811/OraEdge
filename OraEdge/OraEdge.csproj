@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -88,6 +103,24 @@
     <Compile Include="Code\OraDAL.cs" />
     <Compile Include="Code\OraSingleton.cs" />
     <Compile Include="Code\Ora_DB_Helper.cs" />
+    <Compile Include="Forms\Frm_DataGridView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_DataGridView.Designer.cs">
+      <DependentUpon>Frm_DataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_TabCtrl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_TabCtrl.Designer.cs">
+      <DependentUpon>Frm_TabCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_TreeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_TreeView.Designer.cs">
+      <DependentUpon>Frm_TreeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,12 +129,6 @@
     </Compile>
     <Compile Include="Forms\Edge_Login.Designer.cs">
       <DependentUpon>Edge_Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Frm_TextBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Frm_TextBox.Designer.cs">
-      <DependentUpon>Frm_TextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\OraEdge_Main.cs">
       <SubType>Form</SubType>
@@ -120,8 +147,14 @@
     <EmbeddedResource Include="Forms\Edge_Login.resx">
       <DependentUpon>Edge_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_TextBox.resx">
-      <DependentUpon>Frm_TextBox.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_DataGridView.resx">
+      <DependentUpon>Frm_DataGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_TabCtrl.resx">
+      <DependentUpon>Frm_TabCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_TreeView.resx">
+      <DependentUpon>Frm_TreeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OraEdge_Main.resx">
       <DependentUpon>OraEdge_Main.cs</DependentUpon>
@@ -154,6 +187,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon\oracle_logo_icon_168919.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

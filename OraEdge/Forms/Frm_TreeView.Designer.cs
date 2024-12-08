@@ -1,6 +1,6 @@
 ﻿namespace OraEdge
 {
-    partial class Frm_TextBox
+    partial class Frm_TreeView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
-            // textBox1
+            // treeView1
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(608, 179);
-            this.textBox1.TabIndex = 0;
+            this.treeView1.Location = new System.Drawing.Point(1, 0);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(205, 338);
+            this.treeView1.TabIndex = 0;
             // 
-            // Frm_TextBox
+            // Frm_TreeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 179);
-            this.Controls.Add(this.textBox1);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "Frm_TextBox";
-            this.Text = "Frm_TextBox";
+            this.ClientSize = new System.Drawing.Size(208, 339);
+            this.Controls.Add(this.treeView1);
+            this.Name = "Frm_TreeView";
+            this.Text = "Frm_TreeView";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }

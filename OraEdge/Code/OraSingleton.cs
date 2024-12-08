@@ -15,8 +15,7 @@ namespace OraEdge
         string strClassName = "OraEdge.";
         public OraSingleton() {; }
 
-        public void Initialize_Form(string argClassName, 
-                                        System.Windows.Forms.TabControl argTarget_TabCtrl)
+        public void Initialize_Form(string argClassName, Panel argPanel, System.Windows.Forms.TabControl argTarget_TabCtrl)
         {
             try
             {
@@ -27,17 +26,10 @@ namespace OraEdge
                     object obj = Activator.CreateInstance(objType);
                     Form objForm = (Form)obj;
 
-                    //argPanel.Controls.Remove(argGridVw);
-                    objForm.TopLevel = false;
+                    objForm.TopLevel = false;   
                     objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                    /*objForm.Width = argPanel.ClientSize.Width;
-                    objForm.Height = argPanel.ClientSize.Height;*/
 
-                    //if (iCenterForm == 1) { objForm.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent; }
-
-                    System.Windows.Forms.TabPage o_TabPage = new System.Windows.Forms.TabPage();
-                    argTarget_TabCtrl.TabPages.Add(o_TabPage);
-                    o_TabPage.Controls.Add(objForm);
+                    argPanel.Controls.Add(objForm);
                     objForm.Dock = DockStyle.Fill;
                     try { objForm.Show(); } catch (Exception exp) {; }
                 }
@@ -45,27 +37,59 @@ namespace OraEdge
             catch (Exception ex) { MessageBox.Show(ex.Message.ToString(), "Error - Initialize_Form()", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             finally { strClassName = null; }
         }
-        public void Initialize_Form(string argClassName, Panel argPanel, 
-                                        DataGridView argGridView)
+        public void Initialize_Form(string argClassName, System.Windows.Forms.Panel argPanel, System.Windows.Forms.DataGridView argGridView)
         {
             try
             {
                 strClassName = strClassName + argClassName;
+
                 if (strClassName.Length > 0)
                 {
                     Type objType = this.GetType().Assembly.GetType(strClassName);
-                    object obj = Activator.CreateInstance(objType);
-                    Form objForm = (Form)obj;
-                    objForm.TopLevel = false;
-                    objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                    if (objType != null)
+                    {
+                        object obj = Activator.CreateInstance(objType);
+                        Form objForm = (Form)obj;
 
-                    argPanel.Controls.Add(objForm);
-                    objForm.Dock = DockStyle.Fill;
-                    try { objForm.Show(); }catch (Exception exp) {; }
+                        argPanel.Controls.Remove(argGridView);
+                        objForm.TopLevel = false;
+                        objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
+                        argPanel.Controls.Add(objForm);
+                        objForm.Dock = DockStyle.Fill;
+                        try { objForm.Show(); } catch (Exception exp) {; }
+                    }
                 }
             }
-            catch (Exception exp) {; }
+            catch (Exception ex) { MessageBox.Show(ex.Message.ToString(), "Error - Initialize_Form()", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             finally { strClassName = null;  }
+        }
+        public void Initialize_Form(string argClassName, System.Windows.Forms.Panel argPanel, System.Windows.Forms.TreeView argTreeView)
+        {
+            try
+            {
+                strClassName = strClassName + argClassName;
+
+                if (strClassName.Length > 0)
+                {
+                    Type objType = this.GetType().Assembly.GetType(strClassName);
+                    if (objType != null)
+                    {
+                        object obj = Activator.CreateInstance(objType);
+                        Form objForm = (Form)obj;
+
+                        argPanel.Controls.Remove(argTreeView);
+                        objForm.TopLevel = false;
+                        objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
+                        argPanel.Controls.Add(objForm);
+                        objForm.Dock = DockStyle.Fill;
+                        try { objForm.Show(); } catch (Exception exp) {; }
+                    }
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message.ToString(), "Error - Initialize_Form()", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            finally { strClassName = null; }
         }
     }
 }

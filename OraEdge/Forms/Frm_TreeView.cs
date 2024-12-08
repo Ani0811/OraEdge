@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace OraEdge
 {
-    public partial class Frm_TextBox : Form
+    public partial class Frm_TreeView : Form
     {
-        static Frm_TextBox instance;
-        public Frm_TextBox()
+        static Frm_TreeView instance;
+        public Frm_TreeView()
         {
             InitializeComponent();
         }
-        public static Frm_TextBox GetInstance()
+        public static Frm_TreeView GetInstance()
         {
-            if(instance == null || instance.IsDisposed)
+            if (instance == null || instance.IsDisposed)
             {
-                instance = new Frm_TextBox();
+                instance = new Frm_TreeView();
             }
             return instance;
         }

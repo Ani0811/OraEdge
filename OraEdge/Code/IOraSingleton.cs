@@ -9,8 +9,8 @@ namespace OraEdge.Code
 {
     public interface IOraSingleton
     {
-        void Initialize_Form(string argClassName, TabControl argTarget_TabCtrl);
-        void Initialize_Form(string argClassName, Panel argPanel,
-                                        DataGridView argGridView);
+        void Initialize_Form(string argClassName, Panel argPanel, TabControl argTarget_TabCtrl);
+        void Initialize_Form(string argClassName, Panel argPanel, DataGridView argGridView);
+        void Initialize_Form(string argClassName, Panel argPanel, TreeView argTreeView);
     }
 }
