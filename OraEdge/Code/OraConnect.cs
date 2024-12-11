@@ -15,13 +15,9 @@ namespace OraEdge
         public OracleConnection Ora_Connect()
         {
             OracleConnection OraCon = null;
-            //StringBuilder OraConStr = null;
             try
             {
-                String connStr = Load_ConnectionString(Get_FilePath());
-                
-
-                OraCon = new OracleConnection(connStr); //OraConStr = new StringBuilder();
+                OraCon = new OracleConnection(Get_ConnectionString());
 
                 /*OraConStr.Append("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORA19)));User Id=system;Password=sa1234;persist security info=false;Connection Timeout=120;");
                 OraCon.ConnectionString = OraConStr.ToString();*/
@@ -32,35 +28,37 @@ namespace OraEdge
             finally {; }
             return OraCon;
         }
-        public String Load_ConnectionString(String filePath)
+        private String Get_ConnectionString()
         {
             try
             {
-                if (!File.Exists(filePath))
+                if (!File.Exists(Get_FilePath()))
                 {
                     throw new FileNotFoundException("Configuration file not found.");
                 }
-
-                XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load(filePath);
-                XmlNode node = xmlDoc.SelectSingleNode("//CONNECTIONSTRING");
-                if (node != null && !String.IsNullOrWhiteSpace(node.InnerText))
-                {
-                    return node.InnerText.Trim();
-                }
                 else
                 {
-                    throw new Exception("Connection string not found in the configuration file.");
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(Get_FilePath());
+                    XmlNode node = xmlDoc.SelectSingleNode("//CONNECTIONSTRING");
+                    if (node != null && !String.IsNullOrWhiteSpace(node.InnerText))
+                    {
+                        return node.InnerText.Trim();
+                    }
+                    else
+                    {
+                        throw new Exception("Connection string not found in the configuration file.");
+                    }
                 }
             }
             catch (Exception ex) { return null; }
             finally {; }
         }
-        public String Get_FilePath()
+        private String Get_FilePath()
         {
             String currentDir = Directory.GetCurrentDirectory();
             DirectoryInfo DI = Directory.GetParent(Directory.GetCurrentDirectory());
-            currentDir = DI.FullName.Replace("\\bin", "\\Files\\");
+            currentDir = DI.FullName.Replace("\\bin", "\\Connections\\");
             String  filePath = Path.Combine(currentDir, "ConnectionString.xml");
             return filePath;
         }

@@ -98,6 +98,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\DefaultConnection.cs" />
     <Compile Include="Code\IOraSingleton.cs" />
     <Compile Include="Code\OraConnect.cs" />
     <Compile Include="Code\OraDAL.cs" />
@@ -186,6 +187,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Connections\ConnectionString.xml" />
+    <Content Include="Connections\DefaultConnection.xml" />
     <Content Include="Icon\oracle_logo_icon_168919.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
 
@@ -66,59 +67,45 @@ namespace OraEdge
         {
             String username = null;
             String password = null;
-            String database = null;
-            String selectedInstance = null;
-            String default_username = null;
-            String default_password = null;
 
             try
             {
                 username = txt_UserName.Text.Trim();
                 password = txt_PWD.Text.Trim();
 
-                if (lst_OraInstances.SelectedItems.Count > 0)
+                DefaultConnection defaultConn = new DefaultConnection();
+                defaultConn.Get_DefaultConnection();
+
+                if (!defaultConn.IsLoaded)
                 {
-                    selectedInstance = lst_OraInstances.SelectedItems[0].Text;
-                }
-                else
-                {
-                    selectedInstance = null;
+                    MessageBox.Show(defaultConn.ErrorMessage, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
-                if (cmb_DB.SelectedValue != null)
-                {
-                    database = cmb_DB.SelectedValue.ToString();
-                }
-                else
-                {
-                    database = null;
-                }
-
-                default_username = Environment.GetEnvironmentVariable("ORACLE_SYS_USERNAME");
-                default_password = Environment.GetEnvironmentVariable("ORACLE_SYS_PASSWORD");
-
-                if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
+                if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 {
                     MessageBox.Show("Username and Password cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                if (String.IsNullOrEmpty(selectedInstance))
+                if (lst_OraInstances.SelectedItems.Count == 0)
                 {
                     MessageBox.Show("Please select an Oracle instance.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                if (username == default_username && password == default_password)
+                string selectedInstance = lst_OraInstances.SelectedItems[0].Text;
+
+                if (username == defaultConn.Username && password == defaultConn.Password)
                 {
                     MessageBox.Show("Successfully connected as SYSTEM user.", "Connection Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally { username = null; password = null; database = null; selectedInstance = null; }
+            finally { username = null; password = null;}
         }
     }
 }

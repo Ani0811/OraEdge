@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Connections>
+  <DefaultConnection>
+    <Username>system</Username>
+    <Password>sa1234</Password>
+    <Instance>ora19</Instance>
+    <Database>SYS</Database>
+  </DefaultConnection>
+</Connections>
