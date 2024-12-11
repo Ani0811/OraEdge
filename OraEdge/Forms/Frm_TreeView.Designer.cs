@@ -28,30 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.Ora_Tree = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
-            // treeView1
+            // Ora_Tree
             // 
-            this.treeView1.Location = new System.Drawing.Point(1, 0);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(205, 338);
-            this.treeView1.TabIndex = 0;
+            this.Ora_Tree.Location = new System.Drawing.Point(1, 0);
+            this.Ora_Tree.Name = "Ora_Tree";
+            this.Ora_Tree.Size = new System.Drawing.Size(205, 338);
+            this.Ora_Tree.TabIndex = 0;
             // 
             // Frm_TreeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(208, 339);
-            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.Ora_Tree);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_TreeView";
-            this.Text = "Frm_TreeView";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView Ora_Tree;
     }
 }

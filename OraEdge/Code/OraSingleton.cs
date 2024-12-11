@@ -64,11 +64,11 @@ namespace OraEdge
             catch (Exception ex) { MessageBox.Show(ex.Message.ToString(), "Error - Initialize_Form()", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             finally { strClassName = null;  }
         }
-        public void Initialize_Form(string argClassName, System.Windows.Forms.Panel argPanel, System.Windows.Forms.TreeView argTreeView)
+        public void Initialize_Form(string argClassName, System.Windows.Forms.Panel arg_Target_Panel, string arg_Form_Name)
         {
             try
             {
-                strClassName = strClassName + argClassName;
+                strClassName = strClassName + arg_Form_Name;
 
                 if (strClassName.Length > 0)
                 {
@@ -77,14 +77,12 @@ namespace OraEdge
                     {
                         object obj = Activator.CreateInstance(objType);
                         Form objForm = (Form)obj;
-
-                        argPanel.Controls.Remove(argTreeView);
                         objForm.TopLevel = false;
-                        objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-
-                        argPanel.Controls.Add(objForm);
                         objForm.Dock = DockStyle.Fill;
-                        try { objForm.Show(); } catch (Exception exp) {; }
+
+                        arg_Target_Panel.Controls.Add(objForm);
+                        objForm.Show();
+                        arg_Target_Panel.Dock = DockStyle.Fill;
                     }
                 }
             }

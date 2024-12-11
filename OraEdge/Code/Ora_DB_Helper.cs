@@ -12,7 +12,5 @@ namespace OraEdge
         {
             return get_OraData("INSTANCE_NAME");
         }
-
-
     }
 }

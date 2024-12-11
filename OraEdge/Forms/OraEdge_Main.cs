@@ -23,10 +23,13 @@ namespace OraEdge
 
         private void OraEdge_Main_Load(object sender, EventArgs e)
         {
-            //tab_Ctrl.TabPages.Clear();
-            _iOraSingleton.Initialize_Form("Frm_TabCtrl", splitContainer1.Panel1, tab_Ctrl);
-            _iOraSingleton.Initialize_Form("Frm_DataGridView", splitContainer1.Panel2, gd_view);
-            _iOraSingleton.Initialize_Form("Frm_TreeView", panel1, tr_View);
+            //Ora_Split_Container.Orientation = Orientation.Horizontal;
+            //Ora_Split_Container.Dock = DockStyle.Fill;
+
+            _iOraSingleton.Initialize_Form("Frm_TreeView", Ora_Tree_Panel, "Frm_TreeView");
+            _iOraSingleton.Initialize_Form("Frm_TabCtrl", Ora_Query_Panel, "Frm_Query_Pad");
+            _iOraSingleton.Initialize_Form("Frm_DataGridView", Ora_View_Panel, "Frm_DataGridView");
+            
         }
     }
 }

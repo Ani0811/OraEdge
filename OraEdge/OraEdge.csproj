@@ -109,11 +109,11 @@
     <Compile Include="Forms\Frm_DataGridView.Designer.cs">
       <DependentUpon>Frm_DataGridView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_TabCtrl.cs">
+    <Compile Include="Forms\Frm_Query_Pad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_TabCtrl.Designer.cs">
-      <DependentUpon>Frm_TabCtrl.cs</DependentUpon>
+    <Compile Include="Forms\Frm_Query_Pad.Designer.cs">
+      <DependentUpon>Frm_Query_Pad.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Frm_TreeView.cs">
       <SubType>Form</SubType>
@@ -150,8 +150,8 @@
     <EmbeddedResource Include="Forms\Frm_DataGridView.resx">
       <DependentUpon>Frm_DataGridView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_TabCtrl.resx">
-      <DependentUpon>Frm_TabCtrl.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_Query_Pad.resx">
+      <DependentUpon>Frm_Query_Pad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_TreeView.resx">
       <DependentUpon>Frm_TreeView.cs</DependentUpon>

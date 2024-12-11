@@ -11,6 +11,6 @@ namespace OraEdge.Code
     {
         void Initialize_Form(string argClassName, Panel argPanel, TabControl argTarget_TabCtrl);
         void Initialize_Form(string argClassName, Panel argPanel, DataGridView argGridView);
-        void Initialize_Form(string argClassName, Panel argPanel, TreeView argTreeView);
+        void Initialize_Form(string argClassName, Panel arg_Target_Panel, string arg_Form_Name);
     }
 }
